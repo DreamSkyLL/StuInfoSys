@@ -1,0 +1,65 @@
+{% extends 'infosys/inquir/detail.html' %}
+
+
+{% block detailscaptain %}
+学 生 信 息
+{% endblock detailscaptain %}
+
+
+{% block details %}
+<tr>
+	<td class="active"><strong>学号</strong></td>
+	<td>{{ student.student_id }}</td>
+	<td class="active"><strong>姓名</strong></td>
+	<td>{{ student.student_name }}</td>
+</tr>
+<tr>
+	<td class="active"><strong>性别</strong></td>
+	<td>{{ student.student_sex }}</td>
+	<td class="active"><strong>班级</strong></td>
+	<td><a href="{{ student.class_id.get_absolute_url }}">{{ student.class_id }}</a></td>
+</tr>
+<tr>
+	<td class="active"><strong>宿舍</strong></td>
+	<td><a href="{{ live.dormitory_id.get_absolute_url }}">{{ live.dormitory_id }}</a></td>
+	<td class="active"><strong>出生日期</strong></td>
+	<td>{{ student.student_birth }}</td>
+</tr>
+<tr>
+	<td class="active"><strong>手机号</strong></td>
+	<td>{{ student.student_tel }}</td>
+	<td class="active"><strong>QQ号</strong></td>
+	<td>{{ student.student_qq }}</td>
+</tr>
+<tr>
+	<td class="active"><strong>家庭住址</strong></td>
+	<td colspan="3">{{ student.student_address }}</td>
+</tr>
+{% endblock details %}
+
+
+{% block eventscaptain %}
+事 件 记 录
+{% endblock eventscaptain %}
+
+
+{% block eventshead %}
+<tr>
+	<th>时间</th>
+	<th>记录人</th>
+	<th>内容</th>
+</tr>
+{% endblock eventshead %}
+
+
+{% block events %}
+{% for event in events %}
+<tr>
+	<td>{{ event.add_time }}</td>
+	<td>{{ event.update_time }}</td>
+	<td>{{ event.content }}</td>
+</tr>
+{% empty %}
+	<td colspan=3>暂无内容</td>
+{% endfor %}
+{% endblock events %}

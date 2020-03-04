@@ -1,0 +1,60 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/bootstrap-theme.min.css' %}" />
+    <!-- JS -->
+    <script src="{% static 'js/jquery.min.js' %}" type="text/javascript" charset="utf-8"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}" type="text/javascript" charset="utf-8"></script>
+    <style>
+	    .padding-top {
+	    	padding-top: 20px;
+	    }
+
+
+      .iInput{  
+          position: absolute;  
+          width: 99px;  
+          height: 16px;  
+          left: 1px;  
+          top: 2px;  
+          border-bottom: 0px;  
+          border-right: 0px;  
+          border-left: 0px;  
+          border-top: 0px;  
+      }  
+
+      .form-control-sm{
+        font-size: small;
+        height: 25px;
+        width: 150px;
+        color: gray;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <ul class="nav nav-tabs">
+      <li id="query" role="presentation"><a href="{% url 'infosys:student_list' %}">信息查询</a></li>
+      <li class="disabled" id="check" role="presentation"><a href="#">检查查询</a></li>
+      <li id="import" role="presentation"><a href="{% url 'infosys:student_upload' %}">信息导入</a></li>
+      <li id="help" role="presentation"><a href="{% url 'infosys:help' %}">使用帮助</a></li>
+    </ul>
+    <div class="container padding-top">
+      {% block main %}
+      {% endblock main %}
+    </div>
+
+    <script>
+      var url = window.location.pathname
+      console.log(url)
+    </script>
+
+  </body>
+</html>

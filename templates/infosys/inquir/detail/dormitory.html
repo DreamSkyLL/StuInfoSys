@@ -1,0 +1,57 @@
+{% extends 'infosys/inquir/detail.html' %}
+
+
+{% block detailscaptain %}
+班 级 信 息
+{% endblock detailscaptain %}
+
+
+{% block details %}
+			<tr>
+				<td class="active"><strong>宿舍号</strong></td>
+				<td>{{ dormitory.dormitory_id }}</td>
+			</tr>
+			<tr>
+				<td class="active"><strong>门牌号</strong></td>
+				<td>{{ dormitory.room_num }}</td>
+			</tr>
+			<tr>
+				<td class="active"><strong>楼号</strong></td>
+				<td>{{ dormitory.building_num }}</td>
+			</tr>
+			<tr>
+				<td class="active"><strong>楼层</strong></td>
+				<td>{{ dormitory.floor }}</td>
+			</tr>
+			<tr>
+				<td class="active"><strong>舍长</strong></td>
+				<td>{{ dormitory.master }}</td>
+			</tr>
+{% endblock details %}
+
+
+{% block eventscaptain %}
+成 员 列 表
+{% endblock eventscaptain %}
+
+
+{% block eventshead %}
+			<tr>
+				<th>学号</th>
+				<th>姓名</th>
+				<th>床号</th>
+			</tr>
+{% endblock eventshead %}
+
+
+{% block events %}
+			{% for student in students %}
+			<tr>
+				<td>{{ student.student_id.student_id }}</td>
+				<td>{{ student.student_id.student_name }}</td>
+				<td>{{ student.bed_num }}</td>
+			</tr>
+			{% empty %}
+				<td colspan="3">暂无学生</td>
+			{% endfor %}
+{% endblock events %}

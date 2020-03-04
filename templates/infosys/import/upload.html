@@ -1,0 +1,72 @@
+{% extends 'infosys/navbar.html' %}
+
+{% block content %}
+
+<style>
+	.padding-top {
+		padding-top: 20px;
+	}
+</style>
+
+<div class="container padding-top">
+
+
+	<div class="panel panel-default">
+		<!-- Default panel contents -->
+		<div class="panel-heading">
+
+			<form action="." method="POST" enctype="multipart/form-data">
+				{% csrf_token %}
+				<div class="row">
+					<div class="col-xs-10 col-xs-offset-1">
+
+						<div class="col-xs-10">
+							<div class="input-group">
+								<input id='location' class="form-control" onclick="$('#i-file').click();">
+								<label class="input-group-btn">
+									<input type="button" id="i-check" value="浏览文件" class="btn btn-primary" onclick="$('#i-file').click();">
+								</label>
+							</div>
+						</div>
+						<input type="file" name="file" id='i-file' accept=".xls, .xlsx"
+							onchange="$('#location').val($('#i-file').val());" style="display: none">
+						<div class="col-xs-2">
+							<button type="submit" class="btn btn-default">上传文件</button>
+						</div>
+					</div>
+				</div>
+
+
+			</form>
+
+		</div>
+
+		<!-- Table -->
+		<table class="table table-hover">
+			<tr>
+				<th>已上传</th>
+				<th>上传日期</th>
+				<th>#</th>
+			</tr>
+			<tr>
+				<td>材料学院班级列表.xlsx</td>
+				<td>2020-02-21</td>
+				<td><a href="#">删除</a></td>
+			</tr>
+			<tr>
+				<td>矿业学院班级列表.xlsx</td>
+				<td>2020-02-21</td>
+				<td><a href="#">删除</a></td>
+			</tr>
+
+
+		</table>
+	</div>
+</div>
+
+<div class="container padding-top">
+
+	<table class=" table table-hover">
+	</table>
+</div>
+{% endblock content %}

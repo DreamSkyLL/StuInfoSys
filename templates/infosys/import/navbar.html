@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block main %}
+
+<ul class="nav nav-tabs">
+  <li id="stuimport" role="presentation"><a href="{% url 'infosys:student_upload' %}">学生导入</a></li>
+  <li id="claimport" role="presentation"><a href="{% url 'infosys:class_upload' %}">班级导入</a></li>
+  <li class="disabled" id="dorimport" role="presentation"><a href="#">宿舍导入</a></li>
+</ul>
+
+{% block content %}
+{% endblock content %}
+
+{% endblock main %}

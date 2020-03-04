@@ -1,0 +1,33 @@
+{% extends 'infosys/inquir/list.html' %}
+
+
+{% block listhead %}
+      <tr>
+        <th>班名</th>
+        <th>年级</th>
+        <th>专业</th>
+        <th>学院</th>
+        <th>#</th>
+      </tr>
+{% endblock listhead %}
+
+
+{% block listcontent %}
+      {% for class in classes %}
+      <tr>
+        <td>{{ class.class_name }}</td>
+        <td>{{ class.grade}}</td>
+        <td>{{ class.major }}</td>
+        <td>{{ class.college }}</td>
+        <td><a href="{% url 'infosys:class_detail' class.class_id %}">详细信息</a></td>
+      </tr>
+      {% endfor %}
+{% endblock listcontent %}
+
+
+{% block script %}
+<script>
+	$('#clalist').addClass('active');
+  $('#query').addClass('active');
+</script>
+{% endblock script %}

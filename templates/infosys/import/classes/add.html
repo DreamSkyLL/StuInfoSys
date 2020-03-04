@@ -1,0 +1,41 @@
+{% extends 'infosys/navbar.html' %}
+{% block content %}
+
+<div class="container padding-top">
+  <form action="." method="post">
+    {% csrf_token %}
+    <p>学号：<input class="form-control" type="text" name="student_id" id="student_id" value="" /></p>
+    <p>姓名：<input class="form-control" type="text" name="student_name" id="student_name" value="" /></p>
+    <p>性别：</p>
+    <input class="radio-inline" type="radio" name="student_sex" id="student_sex" value="男"> 男
+    <input class="radio-inline" type="radio" name="student_sex" id="student_sex" value="女"> 女
+    <br>
+    <p>出生日期(yyyy-mm-dd)：<input class="form-control" type="date" name="student_birth" id="student_birth" value="" /></p>
+    <p>班级： <input class="form-control" type="text" name="student_class" id="student_class" value="" /></p>
+    <p>手机号： <input class="form-control" type="tel" name="student_tel" id="student_tel" value="" /></p>
+    <p>住址： <input class="form-control" type="text" name="student_address" id="student_address" value="" /></p>
+    <p>QQ：<input class="form-control" type="text" name="student_qq" id="student_qq" value="" /></p>
+    <p>
+      宿舍：
+      <select class="form-control" name="dormitory_id" required id="id_dormitory_id">
+        <option value="" selected>---------</option>
+        {% for student in student %}
+        <option value="{{ student.dormitory_id.dormitory_id }}">{{ student.dormitory_id }}</option>
+        {% endfor %}
+      </select>
+    </p>
+    <p>
+      班级：
+      <select class="form-control" name="class_id" required id="id_class_id">
+        <option value="">---------</option>
+        {% for student in student %}
+        <option value="{{ student.class_id.class_id }}">{{ student.class_id }}</option>
+        {% endfor %}
+      </select>
+    </p>
+    <br>
+    <p><input class="form-control btn btn-default" type="submit" value="提交" /></p>
+
+  </form>
+</div>
+{% endblock content %}

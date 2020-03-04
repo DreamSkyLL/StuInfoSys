@@ -1,0 +1,29 @@
+{% extends 'infosys/inquir/list.html' %}
+
+
+{% block listhead %}
+<tr>
+  <th>宿舍</th>
+  <th>舍长</th>
+  <th>#</th>
+</tr>
+{% endblock listhead %}
+
+
+{% block listcontent %}
+{% for dormitory in dormitories %}
+<tr>
+  <td>{{ dormitory.building_num }}-{{ dormitory.room_num }}</td>
+  <td>{{ dormitory.master_id }}</td>
+  <td><a href="{% url 'infosys:dormitory_detail' dormitory.dormitory_id %}">详细信息</a></td>
+</tr>
+{% endfor %}
+{% endblock listcontent %}
+
+
+{% block script %}
+<script>
+  $('#dorlist').addClass('active');
+  $('#query').addClass('active');
+</script>
+{% endblock script %}
