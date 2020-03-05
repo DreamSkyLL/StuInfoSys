@@ -32,8 +32,6 @@
       .form-control-sm{
         font-size: small;
         height: 25px;
-        width: 150px;
-        color: gray;
       }
 
     </style>
@@ -42,7 +40,7 @@
 
     <ul class="nav nav-tabs">
       <li id="query" role="presentation"><a href="{% url 'infosys:student_list' %}">信息查询</a></li>
-      <li class="disabled" id="check" role="presentation"><a href="#">检查查询</a></li>
+      <li id="check" role="presentation"><a href="{% url 'runningattendance:result' %}">检查查询</a></li>
       <li id="import" role="presentation"><a href="{% url 'infosys:student_upload' %}">信息导入</a></li>
       <li id="help" role="presentation"><a href="{% url 'infosys:help' %}">使用帮助</a></li>
     </ul>

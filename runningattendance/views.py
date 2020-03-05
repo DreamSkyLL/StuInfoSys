@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.http import HttpResponseBadRequest
 from django.db.models import Q
-from django.views.generic import ListView
-from .forms import AttendanceForm
+from django.views.generic import ListView, CreateView
+from .forms import CheckinForm
 from infosys.models import Student, Class
 from .models import Attendance, Takeleave
 
@@ -21,11 +22,21 @@ class ResultView(ListView):
       print('1')
 
     context = {'results':results}
-    return render(request,'runningattendance/result.html', context)
+    return render(request,'runningattendance/result/list/running.html', context)
 
 
+class CheckinView(CreateView):
+  def get(self, request, *args, **kwargs):
+    return render(request, 'runningattendance/check/running.html')
 
-
+  def post(self, request, *args, **kwargs):
+    form = CheckinForm(data=request.POST)
+    if form.is_valid():
+      form.save()
+      print(form.student)
+    else:
+      return HttpResponseBadRequest('格式错误！')
+    return redirect('runningattendance:checkin')
 # def student_list(request):
 #     search = request.GET.get('search')
 #     if search:

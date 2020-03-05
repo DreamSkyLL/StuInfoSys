@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block main %}
+
+<ul class="nav nav-tabs">
+  <li id="stulist" role="presentation"><a href="{% url 'runningattendance:result' %}">早操反馈</a></li>
+  <li id="clalist" role="presentation"><a href="{% url 'runningattendance:checkin' %}">早操录入</a></li>
+  {% comment %} <li id="dorlist" role="presentation"><a href="{% url 'infosys:dormitory_list' %}"></a></li> {% endcomment %}
+</ul>
+
+{% block content %}
+{% endblock content %}
+
+{% endblock main %}

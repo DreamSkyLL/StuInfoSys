@@ -1,0 +1,33 @@
+{% extends 'runningattendance/navbar.html' %}
+{% block content %}
+<div class="container padding-top">
+
+
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+
+    <div class="panel-heading">
+
+
+
+        <div class="row">
+    {% block filter %}
+    {% endblock filter %}
+        </div>
+
+
+    </div>
+
+    <!-- Table -->
+    <table class="table table-hover">
+        {% block listhead %}
+        {% endblock listhead %}
+        {% block listcontent %}
+        {% endblock listcontent %}
+        {% block script %}
+        {% endblock script %}
+    </table>
+  </div>
+</div>
+
+{% endblock content %}

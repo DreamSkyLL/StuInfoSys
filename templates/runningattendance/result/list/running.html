@@ -1,0 +1,56 @@
+{% extends 'runningattendance/result/list.html' %}
+
+
+{% block filter %}
+
+
+
+
+
+
+<form action="." method="GET">
+  <div class="col-xs-2">
+    <select class="form-control form-control-sm" name="grade">
+      <option value="" selected>-----年级-----</option>
+      <option value="2018">2018</option>
+      <option value="2019">2019</option>
+      <option value="2017">2017</option>
+    </select>
+  </div>
+  <div class="col-xs-1">
+    <input class="btn btn-primary form-control-sm" type="submit" value="筛选">
+  </div>
+</form>
+{% endblock filter %}
+
+
+{% block listhead %}
+
+
+<tr>
+  <th>日期</th>
+  <th>学号</th>
+  <th>姓名</th>
+  <th>出勤</th>
+</tr>
+{% endblock listhead %}
+
+
+{% block listcontent %}
+{% for result in results %}
+<tr>
+  <td>{{ result.date }}</td>
+  <td>{{ result.student.student_id }}</td>
+  <td>{{ result.student }}</td>
+  <td>{{ result.time }}</td>
+</tr>
+{% endfor %}
+{% endblock listcontent %}
+
+
+{% block script %}
+<script>
+  $('#stulist').addClass('active');
+  $('#check').addClass('active');
+</script>
+{% endblock script %}

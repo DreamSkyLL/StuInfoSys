@@ -1,0 +1,25 @@
+{% extends 'runningattendance/navbar.html' %}
+{% block content %}
+<div class="padding-top">
+
+</div>
+<form action="." method="POST">
+    {% csrf_token %}
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">学生学号</span>
+        <input type="text" class="form-control" name="student" aria-describedby="basic-addon1">
+    </div>
+    <br>
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">检查人学号</span>
+        <input type="text" class="form-control" name="inspector" aria-describedby="basic-addon1">
+    </div>
+    <br>
+    <input class="btn btn-block btn-primary" type="submit" value="提交">
+</form>
+
+<script>
+    $('#clalist').addClass('active');
+    $('#check').addClass('active');
+  </script>
+{% endblock content %}

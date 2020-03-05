@@ -1,6 +1,8 @@
 from django import forms
 from .models import Attendance, Takeleave
 
-class AttendanceForm(forms.ModelForm):
-    model = Attendance
-    fields = ('student', 'inspector')
+class CheckinForm(forms.ModelForm):
+
+    class Meta:
+        model = Attendance
+        fields = ('student', 'inspector')
