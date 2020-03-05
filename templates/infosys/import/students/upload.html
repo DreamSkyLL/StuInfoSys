@@ -24,7 +24,8 @@
 							<div class="input-group">
 								<input id='location' class="form-control" onclick="$('#i-file').click();">
 								<label class="input-group-btn">
-									<input type="button" id="i-check" value="浏览文件" class="btn btn-primary" onclick="$('#i-file').click();">
+									<input type="button" id="i-check" value="浏览文件" class="btn btn-primary"
+										onclick="$('#i-file').click();">
 								</label>
 							</div>
 						</div>
@@ -40,9 +41,10 @@
 			</form>
 
 		</div>
+		<a href="./class.xlsx">点击下载学生模板</a>
 
 		<!-- Table -->
-		<table class="table table-hover">
+		<!-- <table class="table table-hover">
 			<tr>
 				<th>已上传</th>
 				<th>上传日期</th>
@@ -59,12 +61,12 @@
 				<td><a href="#">删除</a></td>
 			</tr>
 
-		</table>
+		</table> -->
 	</div>
 </div>
 
 <script>
 	$('#stuimport').addClass('active');
-  $('#import').addClass('active');
+	$('#import').addClass('active');
 </script>
 {% endblock content %}

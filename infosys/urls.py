@@ -5,7 +5,9 @@ app_name = 'infosys'
 
 urlpatterns = [
     path("", views.student_list, name='index'),
-    path("help", views.help, name='help'),
+    path("student-download/", views.student_download, name='student_download'),
+    path("class-download/", views.class_download, name='class_download'),
+    path("help/", views.help, name='help'),
     path("student-list/", views.student_list, name='student_list'),
     path("student-add/", views.student_add, name='student_add'),
     path("student-delete/<str:id>/", views.delete_student, name='student_delete'),

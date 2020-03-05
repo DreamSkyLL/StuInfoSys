@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, FileResponse
 from .models import Student, Class, Dormitory, Live, Event, Representative
 from .forms import StudentForm, EventForm
 from django.views.generic import ListView, DetailView, CreateView
@@ -7,6 +7,21 @@ from django.db.models import Q
 
 from openpyxl import load_workbook, worksheet
 import json
+
+
+def class_download(request):
+    file = open('download/class.xlsx', 'rb')
+    response = FileResponse(file)
+    response['Content-Type']='application/octet-stream'
+    response['Content-Disposition']='attachment;filename="class.xlsx"'
+    return response
+
+def student_download(request):
+    file = open('download/student.xlsx', 'rb')
+    response = FileResponse(file)
+    response['Content-Type']='application/octet-stream'
+    response['Content-Disposition']='attachment;filename="student.xlsx"'
+    return response
 
 
 # class StudentListView(ListView):
